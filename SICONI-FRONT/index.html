@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SICONI - Panel de Inventario</title>
+    <!-- Ruta separada apuntando a la carpeta de Estilos -->
+    <link rel="stylesheet" href="Estilos/estilos.css">
+</head>
+
+<body class="pantalla-fondo">
+
+    <div class="contenedor-principal">
+        <!-- Encabezado -->
+        <div class="encabezado-siconi">
+            <div class="icono-titulo"></div>
+            <div>
+                <h1 class="titulo-app">SICONI</h1>
+                <small class="subtitulo-app">Sistema de Control de Inventario Empresarial</small>
+            </div>
+        </div>
+
+        <div class="distribucion-paneles">
+            <!-- Formulario (Izquierda) -->
+            <div class="columna-formulario">
+                <div class="tarjeta-empresarial">
+                    <div class="tarjeta-cabecera-oscura">Formulario de Producto</div>
+                    <div class="tarjeta-cuerpo">
+                        <form id="formularioProducto">
+                            <input type="hidden" id="productoId">
+
+                            <div class="campo-contenedor">
+                                <label class="etiqueta-formulario">Nombre del producto</label>
+                                <input type="text" id="nombre" class="control-entrada" placeholder="Ej. Teclado Gamer"
+                                    required>
+                            </div>
+
+                            <div class="campo-contenedor">
+                                <label class="etiqueta-formulario">Precio unitario ($)</label>
+                                <div class="grupo-entrada-precio">
+                                    <span class="prefijo-moneda">$</span>
+                                    <input type="number" id="precio" step="0.01" class="control-entrada input-precio"
+                                        placeholder="0.00" required>
+                                </div>
+                            </div>
+
+                            <div class="campo-contenedor">
+                                <label class="etiqueta-formulario">Cantidad en stock</label>
+                                <input type="number" id="stock" class="control-entrada" placeholder="0" required>
+                            </div>
+
+                            <div class="campo-contenedor">
+                                <label class="etiqueta-formulario">Asignar Categoría</label>
+                                <select id="categoriaId" class="control-seleccion">
+                                    <option value="1">Tecnología (ID: 1)</option>
+                                    <option value="2">Oficina (ID: 2)</option>
+                                </select>
+                            </div>
+
+                            <div class="campo-contenedor espacio-abajo">
+                                <label class="etiqueta-formulario">Asignar Proveedor</label>
+                                <select id="proveedorId" class="control-seleccion">
+                                    <option value="1">Logitech Intel (ID: 1)</option>
+                                    <option value="2">Suministros Global (ID: 2)</option>
+                                </select>
+                            </div>
+
+                            <div class="bloque-botones">
+                                <button type="submit" id="btnGuardar" class="boton-siconi boton-exito">Guardar
+                                    Producto</button>
+                                <button type="button" id="btnLimpiar" class="boton-siconi boton-cancelar oculto"
+                                    onclick="limpiarFormulario()">Cancelar Edición</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Inventario (Derecha) -->
+            <div class="columna-tabla">
+                <div class="tarjeta-empresarial">
+                    <div class="tarjeta-cabecera-gris">Artículos registrados en Stock</div>
+                    <div class="contenedor-tabla-responsiva">
+                        <table class="tabla-siconi">
+                            <thead>
+                                <tr>
+                                    <th class="col-id">ID</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Categoría</th>
+                                    <th>Proveedor</th>
+                                    <th class="col-acciones">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaProductosBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Sección de Usuarios (Abajo de la tabla para complementar las 4 entidades) -->
+                <div class="tarjeta-empresarial mt-4" style="margin-top: 25px;">
+                    <div class="tarjeta-cabecera-azul"
+                        style="background-color: #0d6efd; color: white; padding: 1rem 1.5rem; font-weight: bold;">
+                        Personal Responsable del Inventario (Cuarta Entidad)
+                    </div>
+                    <div class="contenedor-tabla-responsiva">
+                        <table class="tabla-siconi">
+                            <thead>
+                                <tr>
+                                    <th class="col-id">ID Usuario</th>
+                                    <th>Nombre de Usuario</th>
+                                    <th>Rol Asignado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaUsuariosBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Ruta separada apuntando a la carpeta de Producto -->
+    <script src="Producto/producto.js"></script>
+</body>
+
+</html>
