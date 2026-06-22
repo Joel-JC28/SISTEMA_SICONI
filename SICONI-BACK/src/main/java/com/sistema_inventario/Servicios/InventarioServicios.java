@@ -25,17 +25,17 @@ public class InventarioServicios {
         categorias.add(new Categoria(1L, "Tecnología"));
         categorias.add(new Categoria(2L, "Oficina"));
 
-        proveedores.add(new Proveedores(1L, "Logitech Intel", "0998887771"));
-        proveedores.add(new Proveedores(2L, "Suministros Global", "0996665552"));
+        proveedores.add(new Proveedores(1L, "ASCOMSA", "0962514551"));
+        proveedores.add(new Proveedores(2L, "IMPORTECO", "0985623145"));
 
-        usuarios.add(new Usuarios(1L, "admin_siconi", "Administrador"));
-        usuarios.add(new Usuarios(2L, "operador_bodega", "Asistente de Almacén"));
+        usuarios.add(new Usuarios(1L, "Juan Fernandez", "Administrador"));
+        usuarios.add(new Usuarios(2L, "Pedro Cajas", "Asistente de Almacén"));
 
         productos.add(new Producto(1L, "Mouse Ergonómico RGB", 25.50, 30, 1L, 1L));
         productos.add(new Producto(2L, "Silla de Escritorio Ejecutiva", 145.00, 12, 2L, 2L));
     }
 
-    // --- OPERACIONES CRUD DE PRODUCTOS ---
+    // CRUD
     public List<Producto> obtenerTodosLosProductos() {
         return productos;
     }
@@ -69,7 +69,7 @@ public class InventarioServicios {
         return productos.removeIf(p -> p.getId().equals(id));
     }
 
-    // --- MÉTODOS PARA OBTENER LOS DEMÁS DATOS QUEMADOS ---
+    //Obtener datos quemados
     public List<Usuarios> obtenerTodosLosUsuarios() {
         return usuarios;
     }
