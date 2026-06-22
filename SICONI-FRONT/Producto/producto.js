@@ -2,12 +2,12 @@ const API_URL = "http://localhost:8080/api/productos";
 
 document.addEventListener("DOMContentLoaded", () => {
     listarProductos();
-    listarUsuarios(); // Carga de la cuarta entidad
+    listarUsuarios();
     document.getElementById("formularioProducto").addEventListener("submit", procesarFormulario);
 });
 
-    
-// READ: Obtener y listar productos mapeados con CSS Nativo
+
+// LEER
 function listarProductos() {
     fetch(API_URL)
         .then(res => res.json())
@@ -21,7 +21,7 @@ function listarProductos() {
             }
 
             data.forEach(p => {
-                // Lógica de Stock Bajo usando nuestras clases nativas de CSS
+                // STOCK
                 const claseStock = p.stock > 10 ? 'badge-azul' : 'badge-rojo';
 
                 tbody.innerHTML += `
@@ -56,7 +56,7 @@ function listarProductos() {
 }
 
 
-// READ: Listar los usuarios (Cuarta entidad)
+// LEER USUARIOS (para mostrar en el panel lateral)
 function listarUsuarios() {
     fetch(`${API_URL}/usuarios`)
         .then(res => res.json())
@@ -75,7 +75,7 @@ function listarUsuarios() {
         }).catch(err => console.error("Error cargando usuarios:", err));
 }
 
-// CREATE / UPDATE
+// Create / Update
 function procesarFormulario(e) {
     e.preventDefault();
     const id = document.getElementById("productoId").value;

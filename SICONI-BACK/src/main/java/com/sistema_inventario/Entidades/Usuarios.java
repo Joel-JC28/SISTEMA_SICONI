@@ -2,12 +2,12 @@ package com.sistema_inventario.Entidades;
 
 public class Usuarios {
     private Long id;
-    private String username;
+    private String usuario;
     private String rol;
 
-    public Usuarios(Long id, String username, String rol) {
+    public Usuarios(Long id, String usuario, String rol) {
         this.id = id;
-        this.username = username;
+        this.usuario = usuario;
         this.rol = rol;
     }
 
@@ -20,11 +20,11 @@ public class Usuarios {
     }
 
     public String getUsername() {
-        return username;
+        return usuario;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getRol() {
